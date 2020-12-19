@@ -1,4 +1,4 @@
-import 'notes/if_else.dart';
+import 'notes/dartBasico/if_else.dart';
 
 void main() {
   maiorEntreDois(12, 14);

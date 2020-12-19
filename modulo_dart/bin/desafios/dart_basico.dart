@@ -19,18 +19,29 @@ void main() {
   forAcima20Anos(pacientes);
   forInAcima20Anos(pacientes);
 
-  var nomePaciente = <String>[];
+  var familiaRhaman = [];
+  var familiaVerne = [];
+  var familiaSilva = [];
 
   for (var i = 0; i < pacientes.length; i++) {
     var paciente = pacientes[i].split('|')[0];
-    nomePaciente.add(paciente);
+
+    //* Correções:
+    if (paciente.contains('Rahman')) {
+      familiaRhaman.add(paciente);
+    }
+    if (paciente.contains('Verne')) {
+      familiaVerne.add(paciente);
+    }
+
+    if (paciente.contains('Silva')) {
+      familiaSilva.add(paciente);
+    }
   }
 
-  print(
-      'Família Rahman: ${nomePaciente[0]}, ${nomePaciente[2]}, ${nomePaciente[7]} ');
-  print(
-      'Família Silva: ${nomePaciente[1]}, ${nomePaciente[4]}, ${nomePaciente[5]} ');
-  print('Família Verne: ${nomePaciente[3]}, ${nomePaciente[6]}');
+  print('Família Rahman: ${familiaRhaman.join(', ')} ');
+  print('Família Silva: ${familiaVerne.join(', ')} ');
+  print('Família Verne: ${familiaSilva.join(', ')}');
 }
 
 void forInAcima20Anos(List<String> pacientes) {
@@ -38,7 +49,8 @@ void forInAcima20Anos(List<String> pacientes) {
 
   for (var i in pacientes) {
     var paciente = i.split('|');
-    var idadePaciente = int.tryParse(paciente[1]);
+    var idadePaciente = int.tryParse(paciente[1] ?? 0);
+    //* Correções: Se o parse retornar null então idadePaciente = 0;
 
     if (idadePaciente >= 20) {
       acima20anos++;
