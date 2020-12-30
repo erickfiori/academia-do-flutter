@@ -1,4 +1,4 @@
-//* Estrutura de uma função
+//? Estrutura de uma função
 //! tipo nome (parametros){corpo}
 
 void main() {
