@@ -20,12 +20,11 @@ void main() {
   // Baseado na lista acima.
 
   // 1 - Remover os duplicados
-
   var setPessoas = <String>{};
   setPessoas.addAll(pessoas);
 
-  print('Lista sem duplicatas: $setPessoas');
-  // print(pessoas.toSet());  //* Método Simples
+  print('Lista sem duplicatas: \n$setPessoas');
+  // print(pessoas.toSet());  //* Método Simplificado
 
   // 2 - Me mostre a quantidade de pessoas do sexo Masculino e Feminino
   var listaPessoas = setPessoas.toList();
@@ -58,6 +57,15 @@ void main() {
     }
   }
 
-  print(listaMaioridade);
+  listaMaioridade.sort();
+
+  print(
+      'Foram encontradas ${listaMaioridade.length} pessoas maiores de 18 anos.');
+
   // 4 - Encontre a pessoa mais velha.
+
+  pessoas.sort((a, b) => b.split('|')[1].compareTo(a.split('|')[1]));
+
+  print(
+      'A pessoa mais velha é ${pessoas.first.split('|')[0]} com ${pessoas.first.split('|')[1]} anos!');
 }
